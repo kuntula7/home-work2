@@ -38,13 +38,15 @@ function checkPythagoras(x,y,z){
     let b = y;
     let c = z;
     let result = a*a + b*b == c*c
-    if(result == true){
+    let result2 = a*a + c*c == b*b
+    let result3 =  b*b + c*c == a*a
+    if(result == true || result2 == true || result3 ==true){
         return true
     }else{
         return false
     }
 }
-let numbers = checkPythagoras(4,3,5)
+let numbers = checkPythagoras(5,3,4)
 console.log(numbers)
 //Task 3
 /*
@@ -57,16 +59,17 @@ function minMax(arr){
     let max = arr[0];
     let min = arr[0];
     for(let i = 0; i < arr.length;i++){
-        if(arr[i] >= max || arr[i] <= min ){
-            return "Min value is 2 and Max value is 75"
+        if(arr[i] > max){
+            max = arr[i]
+        } 
+        if(arr[i] < min){
+            min = arr[i]
         }
-        
     }
-    //return `min value is ${array[0]} and max value is ${array[3]}`
+    return 'min is ' + min + 'max is' + max
 }
 let array = [2,14,25,75,11,6];
-let implement = minMax(array)
-console.log(minMax(implement))
+console.log(minMax(array))
 //Task 4
 
 /*
@@ -113,28 +116,26 @@ console.log(angle(170))
 
 */
 function checkStudentGrade(arrayObj){
-    let finalResult = '';
     for(i = 0;i < arrayObj.length;i++){
-        if(arrayObj[0[1]] >0 && arrayObj[0[1]] < 50 ){
-            finalResult = 'F'; 
+        let grade = students[i].grade;
+        if(grade >0 && grade < 50 ){
+            students[i].finalResult = 'F'
         }
-        else if(arrayObj[0[1]] >51 && arrayObj[0[1]] < 60 ){
-            finalResult = 'E'; 
+        else if(grade >51 && grade < 60 ){ 
+            students[i].finalResult = 'E';
         }
-        else if(arrayObj[0[1]] >61 && arrayObj[0[1]] < 70 ){
-            finalResult = 'C'; 
+        else if(grade >61 && grade < 70 ){
+            students[i].finalResult = 'C'; 
         }
-        else if(arrayObj[0[1]] >71 && arrayObj[0[1]] < 80 ){
-            finalResult = 'B'; 
+        else if(grade >=71 && grade < 80 ){
+            students[i].finalResult = 'B';
         }
-        else if(arrayObj[0[1]] >81 && arrayObj[0[1]] < 100 ){
-            finalResult = 'A'; 
+        else if(grade >81 && grade < 100 ){
+            students[i].finalResult = 'A'
         }
     }
-    arrayObj.finalResult
-    return arrayObj
+    return students
     
 }
 let students = [{name: 'student1', grade : 91}, {name: 'student2', grade : 71}, {name: 'student3', grade : 45} ]
-let implement2 = checkStudentGrade(students)
-console.log(checkStudentGrade(implement2))
+console.log(checkStudentGrade(students))
