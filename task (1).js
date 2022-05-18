@@ -13,7 +13,9 @@
 */
 function checkIfItarable(obj){
     if(obj.isItarable == 0 ){
-        return sampleObject
+        for(var key in obj){
+            console.log(key)
+        }
     }else{
         return "provided array isn't itarable"
     }
